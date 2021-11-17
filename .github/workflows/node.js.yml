@@ -33,8 +33,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@master
+      - uses: actions/checkout@master
+      - uses: codecov/codecov-action@v2
         with:
-          github-token: ${{ secrets.github_token }}
-          parallel-finished: true
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
