@@ -33,6 +33,5 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: yarn test
       - uses: actions/checkout@main
       - uses: codecov/codecov-action@v2
