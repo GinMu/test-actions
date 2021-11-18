@@ -28,14 +28,15 @@ jobs:
         cache: 'yarn'
     - run: yarn --ignore-engines
     - run: yarn test
+    - uses: actions/checkout@master
+    - uses: codecov/codecov-action@v2
 
-  finish:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: codecov/codecov-action@v2
-      - name: Generate coverage report
-        run: yarn test
-      - name: Upload coverage to Codecov
+#   finish:
+#     needs: build
+#     runs-on: ubuntu-latest
+#     steps:
+      
+#       - name: Generate coverage report
+#         run: yarn test
+#       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
