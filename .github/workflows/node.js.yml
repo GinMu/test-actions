@@ -33,5 +33,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@master
       - uses: codecov/codecov-action@v2
+      - name: Generate coverage report
+        run: yarn test
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
